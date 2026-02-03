@@ -9,7 +9,10 @@ const tsconfigPaths = (options: TsConfigPathsOptions = {}): BunPlugin => ({
 	name: "bun-tsconfig-paths",
 	setup(build) {
 		const result = tsConfigPaths.loadConfig();
-		if (result.resultType === "failed") return;
+		if (result.resultType === "failed") {
+			console.warn("[bun-tsconfig-paths] Failed to load tsconfig:", result.message);
+			return;
+		}
 
 		const matchPath = tsConfigPaths.createMatchPath(
 			result.absoluteBaseUrl,

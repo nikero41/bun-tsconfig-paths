@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v2
+
+      - name: Cache dependencies
+        id: deps-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-deps-${{ hashFiles('./bun.lock') }}
+
+      - name: Install dependencies
+        if: steps.deps-cache.outputs.cache-hit != 'true'
+        run: bun ci
+
+      - name: Run TypeScript
+        run: bun lint:eslint

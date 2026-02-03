@@ -1,0 +1,24 @@
+{
+	"name": "bun-tsconfig-paths",
+	"description": "Resolve paths aliases from tsconfig.json",
+	"version": "0.0.1",
+	"module": "src/index.ts",
+	"license": "MIT",
+	"type": "module",
+	"scripts": {
+		"build": "bun run build.ts",
+		"lint": "tsc --noEmit",
+		"format": "prettier --write src"
+	},
+	"dependencies": {
+		"tsconfig-paths": "^4.2.0"
+	},
+	"devDependencies": {
+		"@total-typescript/tsconfig": "^1.0.4",
+		"@types/bun": "latest",
+		"prettier": "^3.8.1"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"extends": "@total-typescript/tsconfig/bundler/no-dom/library",
+	"compilerOptions": {
+		"moduleResolution": "bundler",
+
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noPropertyAccessFromIndexSignature": true
+	},
+	"include": ["src"]
+}

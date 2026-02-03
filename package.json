@@ -3,7 +3,10 @@
 	"description": "Resolve path aliases from tsconfig.json",
 	"version": "0.0.1",
 	"license": "MIT",
-	"repository": "github:nikero41/bun-tsconfig-paths",
+	"repository": {
+		"type": "git",
+		"url": "github:nikero41/bun-tsconfig-paths"
+	},
 	"bugs": "https://github.com/nikero41/bun-tsconfig-paths/issues",
 	"type": "module",
 	"publishConfig": {

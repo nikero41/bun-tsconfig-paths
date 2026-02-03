@@ -28,4 +28,4 @@ jobs:
         run: bun ci
 
       - name: Run TypeScript
-        run: bun lint:eslint
+        run: bun lint

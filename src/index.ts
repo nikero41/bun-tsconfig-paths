@@ -1,40 +1,38 @@
 import type { BunPlugin } from "bun";
-import tsConfigPaths from "tsconfig-paths";
+import tsconfigPaths from "tsconfig-paths";
+import { resolvePath } from "./filepath";
 
 export interface TsConfigPathsOptions {
-	external?: boolean;
+	/** Path to tsconfig.json file */
+	tsConfigPath?: string;
 }
 
-const tsconfigPaths = (options: TsConfigPathsOptions = {}): BunPlugin => ({
-	name: "bun-tsconfig-paths",
-	setup(build) {
-		const result = tsConfigPaths.loadConfig();
-		if (result.resultType === "failed") {
-			console.warn("[bun-tsconfig-paths] Failed to load tsconfig:", result.message);
-			return;
-		}
+function bunTsconfigPaths(options: TsConfigPathsOptions = {}): BunPlugin {
+	return {
+		name: "bun-tsconfig-paths",
+		setup(build) {
+			const pathResolver = createTsconfigResolver(options.tsConfigPath);
+			if (!pathResolver) return;
 
-		const matchPath = tsConfigPaths.createMatchPath(
-			result.absoluteBaseUrl,
-			result.paths,
+			build.onResolve({ filter: /.*/, namespace: "file" }, args =>
+				resolvePath(args.path, pathResolver),
+			);
+		},
+	};
+}
+
+export default bunTsconfigPaths;
+
+export function createTsconfigResolver(tsconfigRootPath: string | undefined) {
+	const result = tsconfigPaths.loadConfig(tsconfigRootPath);
+
+	if (result.resultType === "failed") {
+		console.warn(
+			"[bun-tsconfig-paths] Failed to load tsconfig:",
+			result.message,
 		);
+		return null;
+	}
 
-		// const tsConfigAlliasRegExp = new RegExp(
-		// 	"^" +
-		// 		Object.keys(result.paths)
-		// 			.map(p => (p === "*" ? "^\\w+" : p.replace("*", "")))
-		// 			.join("|"),
-		// );
-
-		build.onResolve({ filter: /.*/, namespace: "file" }, args => {
-			const newAbsolutePath = matchPath(args.path.replace(/\.js$/, ".ts"));
-			if (!newAbsolutePath) return;
-			return {
-				path: newAbsolutePath,
-				...("external" in options ? { external: options.external } : {}),
-			};
-		});
-	},
-});
-
-export default tsconfigPaths;
+	return tsconfigPaths.createMatchPath(result.absoluteBaseUrl, result.paths);
+}

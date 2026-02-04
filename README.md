@@ -72,7 +72,7 @@ Returns a Bun plugin that resolves TypeScript path aliases.
 
 ```typescript
 interface TsConfigPathsOptions {
-	external?: boolean; // Mark resolved paths as external (won't be bundled)
+	tsConfigPath?: string; /** Path to tsconfig.json file */
 }
 ```
 

@@ -107,6 +107,7 @@ Contributions are welcome! Here's how you can help:
    ```bash
    bun format      # Format code with Prettier
    bun lint        # Type check with TypeScript
+   bun test        # Run tests
    bun run build   # Build the project
    ```
 

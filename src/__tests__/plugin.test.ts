@@ -22,7 +22,7 @@ describe("plugin", () => {
 	});
 });
 
-describe.only("output", () => {
+describe("output", () => {
 	const originalCwd = process.cwd();
 
 	afterEach(() => {

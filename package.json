@@ -18,6 +18,7 @@
 		"bun",
 		"bun-plugin",
 		"tsconfig",
+		"tsconfig-paths",
 		"bundler"
 	],
 	"files": [

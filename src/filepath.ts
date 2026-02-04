@@ -7,14 +7,10 @@ const EXTENSIONS = [
 	".tsx",
 	".mts",
 	".cts",
-	".mtsx",
-	".ctsx",
 	".js",
 	".jsx",
 	".mjs",
 	".cjs",
-	".mjsx",
-	".cjsx",
 ];
 
 export function resolvePath(

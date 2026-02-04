@@ -77,6 +77,7 @@ jobs:
         run: bun test
 
   build:
+    needs: [lint, typescript, test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

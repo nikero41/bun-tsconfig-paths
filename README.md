@@ -1,5 +1,11 @@
 # bun-tsconfig-paths
 
+[![Licence](https://badgen.net/github/license/nikero41/bun-tsconfig-paths)](https://github.com/nikero41/bun-tsconfig-paths)
+[![CI](https://badgen.net/github/checks/nikero41/bun-tsconfig-paths)](https://github.com/nikero41/bun-tsconfig-paths/actions)
+[![Dependabot](https://badgen.net/github/dependabot/nikero41/bun-tsconfig-paths)](https://github.com/nikero41/bun-tsconfig-paths/security/dependabot)
+[![npm](https://badgen.net/npm/v/bun-tsconfig-paths)](https://www.npmjs.com/package/bun-tsconfig-paths)
+[![npm downloads](https://badgen.net/npm/dt/bun-tsconfig-paths)](https://www.npmjs.com/package/bun-tsconfig-paths)
+
 A Bun plugin that resolves TypeScript path aliases from your `tsconfig.json`.
 
 ## Installation

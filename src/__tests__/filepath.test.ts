@@ -81,7 +81,7 @@ describe("isJsFile", () => {
 	it.each(["main", "main.html", "main.css"])(
 		"returns false for %s",
 		filename => {
-			expect(isJsFile(filename, "mane")).toBe(false);
+			expect(isJsFile(filename, "main")).toBe(false);
 		},
 	);
 });

@@ -30,9 +30,9 @@ await Bun.build({
 });
 ```
 
-### With External Option
+### With Custom tsconfig Path
 
-If you want resolved paths to be marked as external (not bundled):
+If your `tsconfig.json` is in a different location:
 
 ```typescript
 import tsconfigPaths from "bun-tsconfig-paths";
@@ -40,7 +40,7 @@ import tsconfigPaths from "bun-tsconfig-paths";
 await Bun.build({
 	entrypoints: ["./src/index.ts"],
 	outdir: "./dist",
-	plugins: [tsconfigPaths({ external: true })],
+	plugins: [tsconfigPaths({ tsConfigPath: "./packages/app/tsconfig.json" })],
 });
 ```
 

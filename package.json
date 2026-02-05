@@ -1,7 +1,7 @@
 {
 	"name": "bun-tsconfig-paths",
 	"description": "Resolve path aliases from tsconfig.json",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"license": "MIT",
 	"author": "Stavros Nikolopoulos <snikoletopoulos@hotmail.com>",
 	"repository": {

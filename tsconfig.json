@@ -1,12 +1,16 @@
 {
 	"extends": "@total-typescript/tsconfig/bundler/no-dom/library",
 	"compilerOptions": {
+		"outDir": "dist",
 		"moduleResolution": "bundler",
+		"declaration": true,
+		"noEmit": false,
 
 		"noFallthroughCasesInSwitch": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noPropertyAccessFromIndexSignature": true
 	},
-	"include": ["src"]
+	"include": ["src"],
+	"exclude": ["node_modules", "dist", "src/__tests__/fixtures"]
 }

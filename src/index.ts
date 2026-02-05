@@ -1,5 +1,6 @@
 import type { BunPlugin } from "bun";
 import tsconfigPaths from "tsconfig-paths";
+
 import { resolvePath } from "./filepath";
 
 export interface TsConfigPathsOptions {

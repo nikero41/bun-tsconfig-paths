@@ -1,6 +1,6 @@
 import { existsSync, lstatSync, readdirSync } from "fs";
-import tsconfigPaths from "tsconfig-paths";
 import { join, parse } from "path";
+import tsconfigPaths from "tsconfig-paths";
 
 const EXTENSIONS = [
 	".ts",

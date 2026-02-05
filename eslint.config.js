@@ -73,7 +73,7 @@ export default defineConfig(
 			parserOptions: {
 				projectService: {
 					loadTypeScriptPlugins: true,
-					allowDefaultProject: ["lint-staged.config.ts", "prisma.config.ts"],
+					allowDefaultProject: ["src/__tests__/*.ts"],
 				},
 			},
 		},

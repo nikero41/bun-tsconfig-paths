@@ -22,11 +22,11 @@ jobs:
       - run: ${{ toJson(github.event) }}
         shell: cat {0}
 
-      - run: test
-        shell: echo ${{ toJson(github) }}
+      - name: test
+        run: echo ${{ toJson(github) }}
 
-      - run: test 2
-        shell: echo ${{ toJson(github.head_ref) }}
+      - name: test 2
+        run: echo ${{ toJson(github.head_ref) }}
 
       - name: Setup npm
         uses: actions/setup-node@v4

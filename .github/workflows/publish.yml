@@ -23,10 +23,10 @@ jobs:
         shell: cat {0}
 
       - run: test
-        shell: echo ${{ github.ref }}
+        shell: echo ${{ tojson(github.ref) }}
 
       - run: test 2
-        shell: echo ${{ github.head_ref }}
+        shell: echo ${{ tojson(github.head_ref) }}
 
       - name: Setup npm
         uses: actions/setup-node@v4

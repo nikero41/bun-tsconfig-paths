@@ -70,5 +70,5 @@ jobs:
       - name: Build
         run: bun run build
 
-      # - name: Publish
-      #   run: npm publish --provenance
+      - name: Publish
+        run: npm publish --provenance

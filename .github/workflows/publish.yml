@@ -20,15 +20,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - run: ${{ toJson(github.event) }}
-        shell: cat {0}
-
-      - name: test
-        run: echo ${{ toJson(github) }}
-
-      - name: test 2
-        run: echo ${{ toJson(github.head_ref) }}
-
       - name: Setup npm
         uses: actions/setup-node@v4
         with:
